@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="theme-color" content="#fff">
+	<meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap:">
+	<link rel="stylesheet" href="core/framework7-bundle.min.css">
+	<link rel="stylesheet" href="css/app.css">
+	<link rel="apple-touch-icon" href="img/f7-icon-square.png">
+	<link rel="icon" href="img/f7-icon.png">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+	<div id="app">
+		<div class="view view-main view-init safe-areas" data-master-detail-breakpoint="768" data-url="/"></div>
+	</div>
+	<div class="login-screen" id="ftlogin">
+		<div class="view">
+			<div class="page login-screen-page">
+				<div class="page-content login-screen-content container">
+					<div class="text-center">
+						<img src="img/login-icon.png" alt="" class="mt-4" style="width: 45%;" />
+						<h1 class="mt-2" style="color: #0496FF;">Selamat Datang!</h1>
+					</div>
+					<div class="list no-hairlines-md">
+						<ul>
+							<li class="item-content item-input item-input-outline">
+								<div class="item-inner">
+									<div class="item-title mb-2" style="color: #0496FF;">Nama Pengguna </div>
+									<div class="item-input-wrap">
+										<input type="text" placeholder="Username" />
+										<span class="input-clear-button"></span>
+									</div>
+								</div>
+							</li>
+							<li class="item-content item-input item-input-outline">
+								<div class="item-inner">
+									<div class="item-title mb-2" style="color: #0496FF;">Kata Sandi </div>
+									<div class="item-input-wrap">
+										<input type="password" placeholder="Password" />
+										<span class="input-clear-button"></span>
+									</div>
+								</div>
+							</li>
+							<a href="#" onclick="reset()" style="float: right; margin-right: 20px;">
+								<p style="font-size: small; color: #8883F0;">Lupa Password?</p>
+							</a>
+						</ul>
+					</div>
+					<div class="text-center" style="margin-top: 100px;">
+						<button class="button button-large w-50" onclick="masuk()"
+							style="background-color: #0496FF; color: #fff; display: inline-block; border-radius: 30px;">Masuk</button>
+						<p style="font-size: small; margin-top: 10px;">Belum Punya Akun? <a href="#"
+								onclick="bukareg()">Daftar</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="login-screen" id="ftreg">
+		<div class="view">
+			<div class="page login-screen-page">
+				<div class="page-content login-screen-content container">
+					<div class="text-center">
+						<img src="img/login-icon.png" alt="" class="mt-4" style="width: 45%;" />
+						<h1 class="mt-2" style="color: #0496FF;">Buat Akun Baru</h1>
+					</div>
+					<div class="list no-hairlines-md">
+						<ul>
+							<li class="item-content item-input item-input-outline">
+								<div class="item-inner">
+									<div class="item-title mb-2" style="color: #0496FF;">Nama Pengguna </div>
+									<div class="item-input-wrap">
+										<input type="text" placeholder="Username" />
+										<span class="input-clear-button"></span>
+									</div>
+								</div>
+							</li>
+							<li class="item-content item-input item-input-outline">
+								<div class="item-inner">
+									<div class="item-title mb-2" style="color: #0496FF;">Sandi </div>
+									<div class="item-input-wrap">
+										<input type="password" placeholder="password" />
+										<span class="input-clear-button"></span>
+									</div>
+								</div>
+							</li>
+							<li class="item-content item-input item-input-outline">
+								<div class="item-inner">
+									<div class="item-title mb-2" style="color: #0496FF;">Konfirmasi Sandi </div>
+									<div class="item-input-wrap">
+										<input type="password" placeholder="ulangi password" />
+										<span class="input-clear-button"></span>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="text-center" style="margin-top: 50px;">
+						<button class="button button-large w-50" style="background-color: 
+                            #93C646; color: #fff; display: inline-block; border-radius: 30px;">Daftar</button>
+						<p style="font-size: small; margin-top: 10px; margin-bottom: 30px;">Sudah punya akun? <a
+								href="#" onclick="kelogin()">Masuk</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="login-screen" id="lupaPass">
+		<div class="view">
+			<div class="navbar navbar-large navbar-transparent">
+				<div class="navbar-bg"></div>
+				<div class="navbar-inner sliding">
+					<div class="left">
+						<a class="link back" onclick="back()">
+							<i class="icon icon-back"></i>
+							<span class="if-not-md">Back</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="page login-screen-page">
+				<div class="page-content login-screen-content container">
+					<div class="text-center">
+						<h1 class="mt-2" style="color: #0496FF;">Lupa Kata Sandi?</h1>
+						<p>Masukkan nomor telepon, kami akan mengirimkan kode verifikasi untuk mengubah kata sandi </p>
+					</div>
+					<div class="list no-hairlines-md">
+						<ul>
+							<li class="item-content item-input item-input-outline">
+								<div class="item-inner">
+									<div class="item-input-wrap">
+										<input type="number" placeholder="Nomor Telepon" />
+										<span class="input-clear-button"></span>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="text-center" style="margin-top: 50px;">
+						<button class="button button-large w-50" onclick="otp()" style="background-color: 
+                            #0496FF; color: #fff; display: inline-block; border-radius: 30px;">Reset Kata
+							Sandi</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="login-screen" id="verifikasi">
+		<!-- Default view-page layout -->
+		<div class="view">
+			<div class="page login-screen-page">
+				<!-- page-content has additional login-screen content -->
+				<div class="page-content login-screen-content container">
+					<div class="text-center">
+						<h1 class="mt-2" style="color: #0496FF;">Kode Verifikasi</h1>
+						<p>Masukkan kode verifikasi yang kami kirimkan melalui
+							WhatsApp 081234567**** </p>
+					</div>
+					<div class="list no-hairlines-md">
+						<ul>
+							<li class="item-content item-input item-input-outline">
+								<div class="item-inner">
+									<div class="item-input-wrap">
+										<input type="number" placeholder="Masukkan Kode OTP Anda" />
+										<span class="input-clear-button"></span>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="text-center" style="margin-top: 50px;">
+						<button class="button button-large w-60" style="background-color: 
+                            transparent; color: rgb(34, 99, 218); display: inline-block; border-radius: 30px;">Kirim
+							Ulang Kode OTP</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="core/framework7-bundle.min.js"></script>
+	<script src="js/routes.js"></script>
+	<script src="js/store.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script>
+		app.loginScreen.open("#ftlogin");
+
+		function masuk() {
+			app.loginScreen.close("#ftlogin");
+		}
+
+		function bukareg() {
+			app.loginScreen.open("#ftreg");
+		}
+
+		function kelogin() {
+			app.loginScreen.close("#ftreg");
+		}
+
+		function reset() {
+			app.loginScreen.open("#lupaPass");
+		}
+
+		function otp() {
+			app.loginScreen.open("#verifikasi");
+		}
+
+		function back() {
+			app.loginScreen.close("#lupaPass");
+		}
+	</script>
+</body>
+
+</html>

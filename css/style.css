@@ -1,0 +1,49 @@
+.bg-success {
+	background-color: #16a085;
+}
+
+.bg-light {
+	background-color: #fff;
+}
+
+.text-light {
+	color: #fff;
+}
+
+.text-success {
+	color: #16a085;
+}
+
+.tab-link-highlight {
+	display: none;
+}
+
+.image-slider {
+	width: 90%;
+	margin: 0 5%;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+}
+
+.row-icon {
+	margin: 0 5% 15px;
+}
+
+.icon-big {
+	width: 100%;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.d-block {
+	display: block;
+}
+
+.text-md {
+	font-size: 17px;
+}
