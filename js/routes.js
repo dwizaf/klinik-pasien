@@ -6,4 +6,8 @@ var routes = [
       transition: 'f7-parallax',
     },
   },
+  {
+    path: '/edit-profil/', 
+    componentUrl: 'pages/edit-profil.html',
+  },
 ];
