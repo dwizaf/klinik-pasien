@@ -3,19 +3,19 @@
         <div class="toolbar tabbar tabbar-labels toolbar-bottom tabs-swipeable no-shadow"
             style="background-color: white;">
             <div class="toolbar-inner">
-                <a href="#tab-beranda" class="tab-link tab-link-active">
+                <a href="#tab-beranda" class="tab-link tab-link-active" style="text-decoration: none;">
                     <i class="icon f7-icons">house_fill</i>
                     <span class="tabbar-label">Beranda</span>
                 </a>
-                <a href="#tab-jadwal" class="tab-link">
+                <a href="#tab-jadwal" class="tab-link" style="text-decoration: none;">
                     <i class="icon f7-icons">calendar</i>
                     <span class="tabbar-label">Jadwal</span>
                 </a>
-                <a href="#tab-notif" class="tab-link">
+                <a href="#tab-notif" class="tab-link" style="text-decoration: none;">
                     <i class="icon f7-icons">bell_fill</i>
                     <span class="tabbar-label">Notifikasi</span>
                 </a>
-                <a href="#tab-akun" class="tab-link">
+                <a href="#tab-akun" class="tab-link" style="text-decoration: none;">
                     <i class="icon f7-icons">person_fill</i>
                     <span class="tabbar-label">Akun</span>
                 </a>
@@ -29,8 +29,8 @@
                     <div class="col">
                         <div class="row">
                             <div class="col">
-                                <h4>Halo User!</h4>
-                                <h4>Gimana kabarmu?</h4>
+                                <h5>Halo User!</h5>
+                                <h5>Gimana kabarmu?</h5>
                             </div>
                             <div class="col-25">
                                 <img src="img/foto.png" alt=""
@@ -42,36 +42,36 @@
                 <h6 class="title" style="color:rgb(55, 55, 55); margin-left: 15px; margin-top: 0px;">Layanan Kami</h6>
                 <div class="block">
                     <div class="row no-gap row-icon" style="padding: 0px 12px 5px 12px;">
-                        <a href="#" class="menu-item col text-center"
-                            style="height: auto; padding: 0 5px 0 5px; background-color: #0496FF;">
+                        <a href="/pendaftaran/" class="menu-item col text-center"
+                            style="height: auto; padding: 0 5px 0 5px; background-color: #0496FF; text-decoration: none;">
                             <img src="img/stethoscope-white 1.png" class="icon-big d-block"
                                 style="margin: auto; padding: 7px;" />
                             Poli Umum
                         </a>
                         <a href="#" class="menu-item col text-center"
-                            style="height: auto; padding: 0 5px 0 5px; background-color: #0496FF;">
+                            style="height: auto; padding: 0 5px 0 5px; background-color: #0496FF; text-decoration: none;">
                             <img src="img/gigi.png" class="icon-big d-block" style="margin: auto; padding: 7px;" />
                             Poli Gigi
                         </a>
                         <a href="#" class="menu-item col text-center"
-                            style="height: auto; padding: 0 5px 0 5px; background-color: #0496FF;">
+                            style="height: auto; padding: 0 5px 0 5px; background-color: #0496FF; text-decoration: none;">
                             <img src="img/gizi.png" class="icon-big d-block" style="margin: auto; padding: 7px;" />
                             Poli Gizi
                         </a>
                     </div>
                     <div class="row no-gap row-icon" style="padding: 0px 12px 5px 12px;">
                         <a href="#" class="menu-item col text-center"
-                            style="height: auto; padding: 0 5px 0 5px; background-color: #0496FF;">
+                            style="height: auto; padding: 0 5px 0 5px; background-color: #0496FF; text-decoration: none;">
                             <img src="img/ibuanak.png" class="icon-big d-block" style="margin: auto; padding: 7px;" />
                             Ibu & Anak
                         </a>
                         <a href="#" class="menu-item col text-center"
-                            style="height: auto; padding: 0 5px 0 5px; background-color: #0496FF;">
+                            style="height: auto; padding: 0 5px 0 5px; background-color: #0496FF; text-decoration: none;">
                             <img src="img/jantung.png" class="icon-big d-block" style="margin: auto; padding: 7px;" />
                             Poli Jantung
                         </a>
-                        <a href="#" class="menu-item col text-center"
-                            style="height: auto; padding: 0 5px 0 5px; background-color: #0496FF;">
+                        <a href="/menu-lainnya/" class="menu-item col text-center"
+                            style="height: auto; padding: 0 5px 0 5px; background-color: #0496FF; text-decoration: none;">
                             <img src="img/lainnya.png" class="icon-big d-block" style="margin: auto; padding: 7px;" />
                             Lainnya
                         </a>
@@ -110,95 +110,91 @@
                 </div>
 
                 <style>
-                    .overflow{
+                    .overflow {
                         width: 100px;
                         white-space: nowrap;
                         overflow: hidden;
                         text-overflow: ellipsis;
                     }
+
+                    :root {
+                    --f7-tabbar-link-active-border-color: transparent;
+                    --f7-tabbar-link-active-color: #0496FF;
+                }
                 </style>
                 <h6 class="title" style="color:rgb(55, 55, 55); margin-left: 15px; margin-top: 0px;">Antrian Mendatang
                 </h6>
                 <div class="block">
                     <div data-pagination='{"el": ".swiper-pagination"}' id="swiperku2" data-space-between="10"
-                        data-slides-per-view="1.5" class="swiper swiper-init demo-swiper">
+                        data-slides-per-view="2" class="swiper swiper-init demo-swiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"
-                                style="background-color: transparent; border: 2px solid black; border-radius: 10px; height: 30%;">
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col-35 text-center"
-                                            style="border: 1px solid black; margin: auto; margin-left: 10px;">
-                                            <h5 style="background-color: #0496FF;">Nov</h5>
-                                            <h3>12</h3>
-                                        </div>
-                                        <div class="col-55"
-                                            style="margin: 15px 5px 15px 0;">
-                                            <h6>13.00</h6>
-                                            <h5 class="overflow">Poli Umum</h5>
-                                            <h6 class="overflow">Dr. Haris sitompul
-                                            </h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide"
-                                style="background-color: transparent; border: 2px solid black; border-radius: 10px; height: 30%;">
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col-35 text-center"
-                                            style="border: 1px solid black; margin: auto; margin-left: 10px;">
-                                            <h5 style="background-color: #0496FF;">Jul</h5>
-                                            <h3>12</h3>
-                                        </div>
-                                        <div class="col-55"
-                                            style="margin: 15px 5px 15px 0;">
-                                            <h6>13.00</h6>
-                                            <h5 class="overflow">Poli Gigi</h5>
-                                            <h6 class="overflow">Dr. Wima Mumtas
-                                            </h6>
+                            <div class="swiper-slide">
+                                <div class="card" style="width: 20rem; height: 7rem; margin: 0px 0px 10px 0px;">
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="col-35 text-center"
+                                                style="border: 1px solid black; margin: auto; margin-left: 10px;">
+                                                <h6 style="background-color: #0496FF;">Nov</h6>
+                                                <h4>12</h4>
+                                            </div>
+                                            <div class="col-55" style="margin: 15px 5px 15px 0;">
+                                                <h6>13.00</h6>
+                                                <h6
+                                                    style="font-weight: bold; width: 80px; white-space: nowrap; overflow: hidden; text-overflow:ellipsis;">
+                                                    Poli Umum</h6>
+                                                <h6
+                                                    style="width: 80px; white-space: nowrap; overflow: hidden; text-overflow:ellipsis;">
+                                                    Dr. Haris Abdullah</h6>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide"
-                                style="background-color: transparent; border: 2px solid black; border-radius: 10px; height: 30%;">
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col-35 text-center"
-                                            style="border: 1px solid black; margin: auto; margin-left: 10px;">
-                                            <h5 style="background-color: #0496FF;">Sep</h5>
-                                            <h3>12</h3>
-                                        </div>
-                                        <div class="col-55"
-                                            style="margin: 15px 5px 15px 0;">
-                                            <h6>13.00</h6>
-                                            <h5 class="overflow">Poli Jantung</h5>
-                                            <h6 class="overflow">Dr. Haris sitompul
-                                            </h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide"
-                                style="background-color: transparent; border: 2px solid black; border-radius: 10px; height: 30%;">
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col-35 text-center"
-                                            style="border: 1px solid black; margin: auto; margin-left: 10px;">
-                                            <h5 style="background-color: #0496FF;">Jan</h5>
-                                            <h3>15</h3>
-                                        </div>
-                                        <div class="col-55"
-                                            style="margin: 15px 5px 15px 0;">
-                                            <h6>13.00</h6>
-                                            <h5 class="overflow">Poli Ibu dan Anak</h5>
-                                            <h6 class="overflow">Dr. Haris sitompul
-                                            </h6>
+                            <div class="swiper-slide">
+                                <div class="card" style="width: 20rem; height: 7rem; margin: 0px 0px 10px 0px;">
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="col-35 text-center"
+                                                style="border: 1px solid black; margin: auto; margin-left: 10px;">
+                                                <h6 style="background-color: #0496FF;">Nov</h6>
+                                                <h4>12</h4>
+                                            </div>
+                                            <div class="col-55" style="margin: 15px 5px 15px 0;">
+                                                <h6>13.00</h6>
+                                                <h6
+                                                    style="font-weight: bold; width: 80px; white-space: nowrap; overflow: hidden; text-overflow:ellipsis;">
+                                                    Poli Jantung</h6>
+                                                <h6
+                                                    style="width: 80px; white-space: nowrap; overflow: hidden; text-overflow:ellipsis;">
+                                                    Dr. Raihan Sumbul</h6>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="swiper-slide">
+                                <div class="card" style="width: 20rem; height: 7rem; margin: 0px 0px 10px 0px;">
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="col-35 text-center"
+                                                style="border: 1px solid black; margin: auto; margin-left: 10px;">
+                                                <h6 style="background-color: #0496FF;">Nov</h6>
+                                                <h4>12</h4>
+                                            </div>
+                                            <div class="col-55" style="margin: 15px 5px 15px 0;">
+                                                <h6>13.00</h6>
+                                                <h6
+                                                    style="font-weight: bold; width: 80px; white-space: nowrap; overflow: hidden; text-overflow:ellipsis;">
+                                                    Poli Gigi</h6>
+                                                <h6
+                                                    style="width: 80px; white-space: nowrap; overflow: hidden; text-overflow:ellipsis;">
+                                                    Dr. Khalid Khalifah</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -518,45 +514,45 @@
                 <div class="block">
                     <h4 style="margin-bottom: 30px;">Notifikasi</h4>
                     <ul style="padding: 0;">
-                        <li class="swipeout">
+                        <li class="swipeout" style="margin-bottom: 10px;">
                             <div class="item-content swipeout-content">
                                 <div class="col"
-                                    style="background-color: transparent; border: 2px solid black; border-radius: 10px; margin-top: 3%;">
+                                    style="height: 90px; background-color: transparent; border: 2px solid black; border-radius: 10px;">
                                     <div class="row">
-                                        <div class="col-25 text-center"
-                                            style="border: 1px solid black; margin: auto; margin-left: 10px;">
-                                            <h5 style="background-color: #0496FF;">Nov</h5>
-                                            <h3>12</h3>
+                                        <div class="col-20 text-center" style="border: 1px solid black; margin: 10px;">
+                                            <h6 style="background-color: #0496FF;">Nov</h6>
+                                            <h4>12</h4>
                                         </div>
-                                        <div class="col" style="margin: 15px 15px 15px 0;">
-                                            <h6>Jangan Lewatkan Hari Pemeriksaan Anda
-                                                di Poli Umum bersama Dr. Hariz Besok!</h6>
+                                        <div class="col-75" style="margin: 5px;">
+                                            <p>Jangan Lewatkan Hari Pemeriksaan Anda di Poli Umum bersama Dr. Hariz
+                                                Besok!</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="swipeout-actions-right" style="right: -30%;">
-                                    <a href="#" class="swipeout-delete" style="text-decoration: none; color: #ffff; transform: translate3d(6px, 0px, 0px);">Hapus</a>
+                                    <a href="#" class="swipeout-delete"
+                                        style="text-decoration: none; color: #ffff; transform: translate3d(6px, 0px, 0px);">Hapus</a>
                                 </div>
                             </div>
                         </li>
                         <li class="swipeout">
                             <div class="item-content swipeout-content">
                                 <div class="col"
-                                    style="background-color: transparent; border: 2px solid black; border-radius: 10px; margin-top: 3%;">
+                                    style="height: 90px; background-color: transparent; border: 2px solid black; border-radius: 10px;">
                                     <div class="row">
-                                        <div class="col-25 text-center"
-                                            style="border: 1px solid black; margin: auto; margin-left: 10px;">
-                                            <h5 style="background-color: #0496FF;">Nov</h5>
-                                            <h3>12</h3>
+                                        <div class="col-20 text-center" style="border: 1px solid black; margin: 10px;">
+                                            <h6 style="background-color: #0496FF;">Nov</h6>
+                                            <h4>12</h4>
                                         </div>
-                                        <div class="col" style="margin: 15px 15px 15px 0;">
-                                            <h6>Jangan Lewatkan Hari Pemeriksaan Anda
-                                                di Poli Umum bersama Dr. Hariz Besok!</h6>
+                                        <div class="col-75" style="margin: 5px;">
+                                            <p>Jangan Lewatkan Hari Pemeriksaan Anda di Poli Umum bersama Dr. Hariz
+                                                Besok!</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="swipeout-actions-right" style="right: -30%;">
-                                    <a href="#" class="swipeout-delete" style="text-decoration: none; color: #ffff; transform: translate3d(6px, 0px, 0px);">Hapus</a>
+                                    <a href="#" class="swipeout-delete"
+                                        style="text-decoration: none; color: #ffff; transform: translate3d(6px, 0px, 0px);">Hapus</a>
                                 </div>
                             </div>
                         </li>
@@ -570,105 +566,32 @@
                         <img src="img/foto-profil.png"
                             style="margin: 15px 0 10px 0; width: 280px; height: 280px; border: 3px solid grey; border-radius: 150px;"
                             alt="" />
-                        <div class="fab fab-extended fab-left-bottom color-white" style="margin-left: 25px;">
+                        <!-- <div class="fab fab-extended fab-left-bottom color-white" style="margin-left: 25px;">
                             <a href="/edit-profil/">
                                 <i class="icon f7-icons if-not-md" style="color: #199A8E;">pencil</i>
                                 <i class="icon material-icons md-only" style="color: #199A8E;">edit</i>
                             </a>
-                        </div>
-                        <div class="fab fab-extended fab-right-bottom color-white" style="margin-right: 25px;">
+                        </div> -->
+                        <!-- <div class="fab fab-extended fab-right-bottom color-white" style="margin-right: 25px;">
                             <a href="#">
                                 <i class="icon f7-icons if-not-md" style="color: #199A8E;">camera</i>
                                 <i class="icon material-icons md-only" style="color: #199A8E;">camera</i>
                             </a>
-                        </div>
+                        </div> -->
                         <h3>Muhammad Sumbul</h3>
                     </div>
                 </div>
                 <div class="block text-left col"
-                    style="background-color: white; color: black; border-radius: 25px; padding-top: 20px; padding-bottom: 10%; font-size: medium;">
-                    <div class="item-inner row">
-                        <div class="item-title mb-2 col-40" style="margin-left: 22px;">NIK </div>
-                        <div class="item-input-wrap col-55" style="margin-right: 10px;">: 0123456789181
-                        </div>
+                    style="background-color: white; color: black; border-radius: 25px; margin-top: 20%; padding-bottom: 10%; font-size: medium;">
+                    <div class="block text-center" style="padding-top: 10%;">
+                        <a href="/profil/" class="button button-medium"
+                            style="background-color: #0496FF; color: #fff; width: 150px; padding: 7%; margin: auto; border-radius: 15px; text-decoration: none;">EDIT
+                            PROFIL</a>
+                        <a href="/riwayat-pemeriksaan/" class="button button-medium"
+                            style="background-color: #0496FF; color: #fff; width: 250px; padding: 7%; margin: auto; border-radius: 15px; margin-top: 15px; text-decoration: none;">RIWAYAT
+                            PEMERIKSAAN</a>
                     </div>
-                    <div class="item-inner row">
-                        <div class="item-title mb-2 col-40" style="margin-left: 22px;">Nama Lengkap </div>
-                        <div class="item-input-wrap col-55" style="margin-right: 10px;">: Muhammad Sumbul
-                        </div>
-                    </div>
-                    <div class="item-inner row">
-                        <div class="item-title mb-2 col-40" style="margin-left: 22px;">Tempat Lahir </div>
-                        <div class="item-input-wrap col-55" style="margin-right: 10px;">: Nganjuk
-                        </div>
-                    </div>
-                    <div class="item-inner row">
-                        <div class="item-title mb-2 col-40" style="margin-left: 22px;">Tanggal Lahir </div>
-                        <div class="item-input-wrap col-55" style="margin-right: 10px;">: 15-02-2000
-                        </div>
-                    </div>
-                    <div class="item-inner row">
-                        <div class="item-title mb-2 col-40" style="margin-left: 22px;">Jenis Kelamin </div>
-                        <div class="item-input-wrap col-55" style="margin-right: 10px;">: Laki-laki
-                        </div>
-                    </div>
-                    <div class="item-inner row">
-                        <div class="item-title mb-2 col-40" style="margin-left: 22px;">Provinsi </div>
-                        <div class="item-input-wrap col-55" style="margin-right: 10px;">: Jawa Timur
-                        </div>
-                    </div>
-                    <div class="item-inner row">
-                        <div class="item-title mb-2 col-40" style="margin-left: 22px;">Kabupaten </div>
-                        <div class="item-input-wrap col-55" style="margin-right: 10px;">: Nganjuk
-                        </div>
-                    </div>
-                    <div class="item-inner row">
-                        <div class="item-title mb-2 col-40" style="margin-left: 22px;">Kecamatan </div>
-                        <div class="item-input-wrap col-55" style="margin-right: 10px;">: Kertosono
-                        </div>
-                    </div>
-                    <div class="item-inner row">
-                        <div class="item-title mb-2 col-40" style="margin-left: 22px;">Desa </div>
-                        <div class="item-input-wrap col-55" style="margin-right: 10px;">: Tembarak
-                        </div>
-                    </div>
-                    <div class="item-inner row">
-                        <div class="item-title mb-2 col-40" style="margin-left: 22px;">Alamat </div>
-                        <div class="item-input-wrap col-55" style="margin-right: 10px;">: Jl. Imam Bonjol
-                            no.74
-                        </div>
-                    </div>
-                    <div class="item-inner row">
-                        <div class="item-title mb-2 col-40" style="margin-left: 22px;">Pekerjaan </div>
-                        <div class="item-input-wrap col-55" style="margin-right: 10px;">: Pegawai Swasta
-                        </div>
-                    </div>
-                    <div class="item-inner row">
-                        <div class="item-title mb-2 col-40" style="margin-left: 22px;">Agama </div>
-                        <div class="item-input-wrap col-55" style="margin-right: 10px;">: Islam
-                        </div>
-                    </div>
-                    <div class="item-inner row">
-                        <div class="item-title mb-2 col-40" style="margin-left: 22px;">Golongan Darah </div>
-                        <div class="item-input-wrap col-55" style="margin-right: 10px;">: AB
-                        </div>
-                    </div>
-                    <div class="item-inner row">
-                        <div class="item-title mb-2 col-40" style="margin-left: 22px;">Status Perkawinan
-                        </div>
-                        <div class="item-input-wrap col-55" style="margin-right: 10px;">: Belum Kawin
-                        </div>
-                    </div>
-                    <div class="item-inner row">
-                        <div class="item-title mb-2 col-40" style="margin-left: 22px;">Alergi </div>
-                        <div class="item-input-wrap col-55" style="margin-right: 10px;">: Dingin
-                        </div>
-                    </div>
-                    <div class="item-inner row">
-                        <div class="item-title mb-2 col-40" style="margin-left: 22px;">Nomor Telepon </div>
-                        <div class="item-input-wrap col-55" style="margin-right: 10px;">: 085712341234
-                        </div>
-                    </div>
+
                     <div class="block text-center" style="padding-top: 10%;">
                         <button class="button button-medium"
                             style="background-color: #F32323; color: #fff; width: 150px; padding: 7%; margin: auto; border-radius: 30px;">Keluar</button>
