@@ -14,6 +14,7 @@
 	<link rel="apple-touch-icon" href="img/f7-icon-square.png">
 	<link rel="icon" href="img/f7-icon.png">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/custom.css">
 </head>
 
 <body>
@@ -34,7 +35,7 @@
 								<div class="item-inner">
 									<div class="item-title mb-2" style="color: #0496FF;">Nama Pengguna </div>
 									<div class="item-input-wrap">
-										<input type="text" placeholder="Username" />
+										<input type="text" class="frmlogin" placeholder="Username" id="loginUser" />
 										<span class="input-clear-button"></span>
 									</div>
 								</div>
@@ -43,7 +44,7 @@
 								<div class="item-inner">
 									<div class="item-title mb-2" style="color: #0496FF;">Kata Sandi </div>
 									<div class="item-input-wrap">
-										<input type="password" placeholder="Password" />
+										<input type="password" class="frmlogin" placeholder="Password" id="loginPass" />
 										<span class="input-clear-button"></span>
 									</div>
 								</div>
@@ -54,10 +55,10 @@
 						</ul>
 					</div>
 					<div class="text-center" style="margin-top: 100px;">
-						<button class="button button-large w-50" onclick="masuk()"
+						<button class="button button-large w-50" onclick="loginku()"
 							style="background-color: #0496FF; color: #fff; display: inline-block; border-radius: 30px;">Masuk</button>
 						<p style="font-size: small; margin-top: 10px;">Belum Punya Akun? <a href="#"
-								onclick="bukareg()">Daftar</a></p>
+								onclick='app.loginScreen.open("#ftreg")'>Daftar</a></p>
 					</div>
 				</div>
 			</div>
@@ -78,7 +79,7 @@
 								<div class="item-inner">
 									<div class="item-title mb-2" style="color: #0496FF;">Nama Pengguna </div>
 									<div class="item-input-wrap">
-										<input type="text" placeholder="Username" />
+										<input class="frmreg" type="text" placeholder="Username" id="txtUser" />
 										<span class="input-clear-button"></span>
 									</div>
 								</div>
@@ -87,7 +88,7 @@
 								<div class="item-inner">
 									<div class="item-title mb-2" style="color: #0496FF;">Sandi </div>
 									<div class="item-input-wrap">
-										<input type="password" placeholder="password" />
+										<input class="frmreg" type="password" placeholder="password" id="txtPass" />
 										<span class="input-clear-button"></span>
 									</div>
 								</div>
@@ -96,7 +97,8 @@
 								<div class="item-inner">
 									<div class="item-title mb-2" style="color: #0496FF;">Konfirmasi Sandi </div>
 									<div class="item-input-wrap">
-										<input type="password" placeholder="ulangi password" />
+										<input class="frmreg" type="password" placeholder="ulangi password"
+											id="txtKonfirmPass" />
 										<span class="input-clear-button"></span>
 									</div>
 								</div>
@@ -104,10 +106,10 @@
 						</ul>
 					</div>
 					<div class="text-center" style="margin-top: 50px;">
-						<button class="button button-large w-50" style="background-color: 
+						<button class="button button-large w-50" onclick="registrasi()" style="background-color: 
                             #93C646; color: #fff; display: inline-block; border-radius: 30px;">Daftar</button>
 						<p style="font-size: small; margin-top: 10px; margin-bottom: 30px;">Sudah punya akun? <a
-								href="#" onclick="kelogin()">Masuk</a></p>
+								href="#" onclick='app.loginScreen.close("#ftreg");'>Masuk</a></p>
 					</div>
 				</div>
 			</div>
@@ -128,19 +130,6 @@
 				</div>
 			</div>
 
-			<style>
-				/* Chrome, Safari, Edge, Opera */
-				input::-webkit-outer-spin-button,
-				input::-webkit-inner-spin-button {
-					-webkit-appearance: none;
-					margin: 0;
-				}
-		
-				/* Firefox */
-				input[type=number] {
-					-moz-appearance: textfield;
-				}
-			</style>
 			<div class="page login-screen-page">
 				<div class="page-content login-screen-content container">
 					<div class="text-center">
@@ -183,10 +172,24 @@
 					<div class="list no-hairlines-md">
 						<ul>
 							<li class="item-content item-input item-input-outline">
-								<div class="item-inner">
-									<div class="item-input-wrap">
-										<input type="number" placeholder="Masukkan Kode OTP Anda" />
-										<span class="input-clear-button"></span>
+								<div class="item-inner flex-row">
+									<div class="item-input-wrap m-2">
+										<input type="number" />
+									</div>
+									<div class="item-input-wrap m-2">
+										<input type="number" />
+									</div>
+									<div class="item-input-wrap m-2">
+										<input type="number" />
+									</div>
+									<div class="item-input-wrap m-2">
+										<input type="number" />
+									</div>
+									<div class="item-input-wrap m-2">
+										<input type="number" />
+									</div>
+									<div class="item-input-wrap m-2">
+										<input type="number" />
 									</div>
 								</div>
 							</li>
@@ -196,6 +199,48 @@
 						<button class="button button-large w-60" style="background-color: 
                             transparent; color: rgb(34, 99, 218); display: inline-block; border-radius: 30px;">Kirim
 							Ulang Kode OTP</button>
+						<button class="button button-large w-60" onclick="newPass()"
+							style="background-color: #0496FF; color: white; display: inline-block; margin-top: 20px; border-radius: 30px;">Submit</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="login-screen" id="newPass">
+		<div class="view">
+			<div class="page login-screen-page">
+				<div class="page-content login-screen-content container">
+					<div class="text-center">
+						<h2 class="mb-4" style="color: #0496FF;">Buat Kata Sandi Baru</h2>
+						<p>Buat kata sandi baru untuk masuk ke dalam aplikasi</p>
+					</div>
+					<div class="list no-hairlines-md">
+						<ul>
+							<p class="ml-3 mt-4 mb-0" style="color: #979797;">Kata Sandi Baru</p>
+							<li class="item-content item-input item-input-outline">
+								<div class="item-inner">
+									<div class="item-input-wrap">
+										<input type="password" />
+										<span class="input-clear-button"></span>
+									</div>
+								</div>
+							</li>
+							<p class="ml-3 mt-4 mb-0" style="color: #979797;">Konfirmasi Kata Sandi Baru</p>
+							<li class="item-content item-input item-input-outline">
+								<div class="item-inner">
+									<div class="item-input-wrap">
+										<input type="password" />
+										<span class="input-clear-button"></span>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="text-center" style="margin-top: 50px;">
+						<button class="button button-large w-60" style="background-color: 
+                            #0496FF; color: #fff; display: inline-block; border-radius: 30px;">Reset Kata
+							Sandi Baru</button>
 					</div>
 				</div>
 			</div>
@@ -211,48 +256,455 @@
 					<div class="text-center">
 						<h3 class="mt-4 mb-4" style="color: #000000;">Biodata Pengguna</h3>
 					</div>
+
+					<!-- NIK -->
 					<div class="item-title" style="margin-left: 10px; color: #000000;">NIK </div>
 					<input type="number" placeholder=""
 						style="border: 1px solid black; border-radius:7px; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px;" />
+
+					<!-- Nama Lengkap -->
 					<div class="item-title" style="margin-left: 10px; color: #000000;">Nama Lengkap </div>
 					<input type="text" placeholder=""
 						style="border: 1px solid black; border-radius:7px; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px;" />
+
+					<!-- Tempat Lahir -->
 					<div class="item-title" style="margin-left: 10px; color: #000000;">Tempat Lahir </div>
 					<input type="text" placeholder=""
 						style="border: 1px solid black; border-radius:7px; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px;" />
+
+					<!-- Tanggal Lahir -->
 					<div class="item-title" style="margin-left: 10px; color: #000000;">Tanggal Lahir </div>
 					<input type="date" placeholder=""
 						style="border: 1px solid black; border-radius:7px; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px;" />
-					<div class="item-title" style="margin-left: 10px; color: #000000;">Jenis Kelamin </div>
-					<input type="search" placeholder=""
-						style="border: 1px solid black; border-radius:7px; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px;" />
-					<div class="item-title" style="margin-left: 10px; color: #000000;">Provinsi </div>
-					<input type="number" placeholder=""
-						style="border: 1px solid black; border-radius:7px; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px;" />
-					<div class="item-title" style="margin-left: 10px; color: #000000;">Kabupaten </div>
-					<input type="number" placeholder=""
-						style="border: 1px solid black; border-radius:7px; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px;" />
-					<div class="item-title" style="margin-left: 10px; color: #000000;">Kecamatan </div>
-					<input type="number" placeholder=""
-						style="border: 1px solid black; border-radius:7px; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px;" />
-					<div class="item-title" style="margin-left: 10px; color: #000000;">Desa </div>
-					<input type="number" placeholder=""
-						style="border: 1px solid black; border-radius:7px; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px;" />
+
+					<!-- Jenis Kelamin -->
+					<div class="item-title mt-4 mb-1" style="margin-left: 10px; color: #000000; font-weight: 500;">Jenis
+						Kelamin </div>
+					<div class="inner-addon right-addon popup-open" data-popup=".popup-jk">
+						<i class="f7-icons glyphicon">bars</i>
+						<input type="text" id="jk" class="form-control"
+							style="border: 1px solid black; border-radius:7px; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px;"
+							readonly="readonly" onfocus="this.blur();" tabindex="-1" />
+					</div>
+
+					<div class="popup popup-jk">
+						<div class="navbar">
+							<div class="navbar-bg"></div>
+							<div class="navbar-inner">
+								<div class="left" style="padding-top: 10px; padding-left: 10px;">
+									<a href="#" class="link popup-close"
+										style="text-decoration: none; color: #000000;"><i
+											class="f7-icons">multiply</i></a>
+								</div>
+								<div class="title">Jenis Kelamin</div>
+							</div>
+						</div>
+						<div class="block">
+							<form class="searchbar">
+								<div class="searchbar-inner">
+									<div class="searchbar-input-wrap">
+										<input type="search" placeholder="Search"
+											style="border: 1px solid black; border-radius:7px;" />
+										<i class="searchbar-icon"></i>
+										<span class="input-clear-button"></span>
+									</div>
+									<span class="searchbar-disable-button if-not-aurora">Cancel</span>
+								</div>
+							</form>
+							<div class="list searchbar-found">
+								<ul>
+									<li class="item-content" @click="${()=>changeJK('Laki-Laki')}">
+										<div class="item-inner">
+											<div class="item-title">Laki-Laki</div>
+										</div>
+									</li>
+									<li class="item-content" @click="${()=>changeJK('Perempuan')}">
+										<div class="item-inner">
+											<div class="item-title">Perempuan</div>
+										</div>
+									</li>
+									<li class="item-content" @click="${()=>changeJK('Tidak Ingin Diketahui')}">
+										<div class="item-inner">
+											<div class="item-title">Tidak Ingin Diketahui</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<!-- Provinsi -->
+					<div class="item-title mt-4 mb-1" style="margin-left: 10px; color: #000000; font-weight: 500;">
+						Provinsi </div>
+					<div class="inner-addon right-addon popup-open" data-popup=".popup-provinsi">
+						<i class="f7-icons glyphicon">bars</i>
+						<input type="text" id="provinsi" class="form-control"
+							style="border: 1px solid black; border-radius:7px; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px;"
+							readonly="readonly" onfocus="this.blur();" tabindex="-1" />
+					</div>
+
+					<div class="popup popup-provinsi">
+						<div class="navbar">
+							<div class="navbar-bg"></div>
+							<div class="navbar-inner">
+								<div class="left" style="padding-top: 10px; padding-left: 10px;">
+									<a href="#" class="link popup-close"
+										style="text-decoration: none; color: #000000;"><i
+											class="f7-icons">multiply</i></a>
+								</div>
+								<div class="title">Provinsi</div>
+							</div>
+						</div>
+						<div class="block">
+							<form class="searchbar">
+								<div class="searchbar-inner">
+									<div class="searchbar-input-wrap">
+										<input type="search" placeholder="Search"
+											style="border: 1px solid black; border-radius:7px;" />
+										<i class="searchbar-icon"></i>
+										<span class="input-clear-button"></span>
+									</div>
+									<span class="searchbar-disable-button if-not-aurora">Cancel</span>
+								</div>
+							</form>
+							<div class="list searchbar-found">
+								<ul>
+									<li class="item-content" @click="${()=>changeProvinsi('Jawa Timur')}">
+										<div class="item-inner">
+											<div class="item-title">Jawa Timur</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<!-- Kabupaten -->
+					<div class="item-title mt-4 mb-1" style="margin-left: 10px; color: #000000; font-weight: 500;">
+						Kabupaten </div>
+					<div class="inner-addon right-addon popup-open" data-popup=".popup-kabupaten">
+						<i class="f7-icons glyphicon">bars</i>
+						<input type="text" id="kabupaten" class="form-control"
+							style="border: 1px solid black; border-radius:7px; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px;"
+							readonly="readonly" onfocus="this.blur();" tabindex="-1" />
+					</div>
+
+					<div class="popup popup-kabupaten">
+						<div class="navbar">
+							<div class="navbar-bg"></div>
+							<div class="navbar-inner">
+								<div class="left" style="padding-top: 10px; padding-left: 10px;">
+									<a href="#" class="link popup-close"
+										style="text-decoration: none; color: #000000;"><i
+											class="f7-icons">multiply</i></a>
+								</div>
+								<div class="title">Kabupaten</div>
+							</div>
+						</div>
+						<div class="block">
+							<form class="searchbar">
+								<div class="searchbar-inner">
+									<div class="searchbar-input-wrap">
+										<input type="search" placeholder="Search"
+											style="border: 1px solid black; border-radius:7px;" />
+										<i class="searchbar-icon"></i>
+										<span class="input-clear-button"></span>
+									</div>
+									<span class="searchbar-disable-button if-not-aurora">Cancel</span>
+								</div>
+							</form>
+							<div class="list searchbar-found">
+								<ul>
+									<li class="item-content" @click="${()=>changeKabupaten('Surabaya')}">
+										<div class="item-inner">
+											<div class="item-title">Surabaya</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<!-- Kecamatan -->
+					<div class="item-title mt-4 mb-1" style="margin-left: 10px; color: #000000; font-weight: 500;">
+						Kecamatan </div>
+					<div class="inner-addon right-addon popup-open" data-popup=".popup-kecamatan">
+						<i class="f7-icons glyphicon">bars</i>
+						<input type="text" id="kecamatan" class="form-control"
+							style="border: 1px solid black; border-radius:7px; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px;"
+							readonly="readonly" onfocus="this.blur();" tabindex="-1" />
+					</div>
+
+					<div class="popup popup-kecamatan">
+						<div class="navbar">
+							<div class="navbar-bg"></div>
+							<div class="navbar-inner">
+								<div class="left" style="padding-top: 10px; padding-left: 10px;">
+									<a href="#" class="link popup-close"
+										style="text-decoration: none; color: #000000;"><i
+											class="f7-icons">multiply</i></a>
+								</div>
+								<div class="title">Kecamatan</div>
+							</div>
+						</div>
+						<div class="block">
+							<form class="searchbar">
+								<div class="searchbar-inner">
+									<div class="searchbar-input-wrap">
+										<input type="search" placeholder="Search"
+											style="border: 1px solid black; border-radius:7px;" />
+										<i class="searchbar-icon"></i>
+										<span class="input-clear-button"></span>
+									</div>
+									<span class="searchbar-disable-button if-not-aurora">Cancel</span>
+								</div>
+							</form>
+							<div class="list searchbar-found">
+								<ul>
+									<li class="item-content" @click="${()=>changeKecamatan('Bubutan')}">
+										<div class="item-inner">
+											<div class="item-title">Bubutan</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<!-- Desa -->
+					<div class="item-title mt-4 mb-1" style="margin-left: 10px; color: #000000; font-weight: 500;">Desa
+					</div>
+					<div class="inner-addon right-addon popup-open" data-popup=".popup-desa">
+						<i class="f7-icons glyphicon">bars</i>
+						<input type="text" id="desa" class="form-control"
+							style="border: 1px solid black; border-radius:7px; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px;"
+							readonly="readonly" onfocus="this.blur();" tabindex="-1" />
+					</div>
+
+					<div class="popup popup-desa">
+						<div class="navbar">
+							<div class="navbar-bg"></div>
+							<div class="navbar-inner">
+								<div class="left" style="padding-top: 10px; padding-left: 10px;">
+									<a href="#" class="link popup-close"
+										style="text-decoration: none; color: #000000;"><i
+											class="f7-icons">multiply</i></a>
+								</div>
+								<div class="title">Desa</div>
+							</div>
+						</div>
+						<div class="block">
+							<form class="searchbar">
+								<div class="searchbar-inner">
+									<div class="searchbar-input-wrap">
+										<input type="search" placeholder="Search"
+											style="border: 1px solid black; border-radius:7px;" />
+										<i class="searchbar-icon"></i>
+										<span class="input-clear-button"></span>
+									</div>
+									<span class="searchbar-disable-button if-not-aurora">Cancel</span>
+								</div>
+							</form>
+							<div class="list searchbar-found">
+								<ul>
+									<li class="item-content" @click="${()=>changeDesa('Surabaya')}">
+										<div class="item-inner">
+											<div class="item-title">Surabaya</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
 					<div class="item-title" style="margin-left: 10px; color: #000000;">Alamat </div>
 					<input type="number" placeholder=""
 						style="border: 1px solid black; border-radius:7px; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px;" />
-					<div class="item-title" style="margin-left: 10px; color: #000000;">Pekerjaan </div>
-					<input type="number" placeholder=""
-						style="border: 1px solid black; border-radius:7px; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px;" />
-					<div class="item-title" style="margin-left: 10px; color: #000000;">Agama </div>
-					<input type="number" placeholder=""
-						style="border: 1px solid black; border-radius:7px; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px;" />
-					<div class="item-title" style="margin-left: 10px; color: #000000;">Golongan Darah </div>
-					<input type="number" placeholder=""
-						style="border: 1px solid black; border-radius:7px; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px;" />
-					<div class="item-title" style="margin-left: 10px; color: #000000;">Status Perkawinan </div>
-					<input type="number" placeholder=""
-						style="border: 1px solid black; border-radius:7px; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px;" />
+
+					<!-- Pekerjaan -->
+					<div class="item-title mt-4 mb-1" style="margin-left: 10px; color: #000000; font-weight: 500;">
+						Pekerjaan </div>
+					<div class="inner-addon right-addon popup-open" data-popup=".popup-pekerjaan">
+						<i class="f7-icons glyphicon">bars</i>
+						<input type="text" id="pekerjaan" class="form-control"
+							style="border: 1px solid black; border-radius:7px; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px;"
+							readonly="readonly" onfocus="this.blur();" tabindex="-1" />
+					</div>
+
+					<div class="popup popup-pekerjaan">
+						<div class="navbar">
+							<div class="navbar-bg"></div>
+							<div class="navbar-inner">
+								<div class="left" style="padding-top: 10px; padding-left: 10px;">
+									<a href="#" class="link popup-close"
+										style="text-decoration: none; color: #000000;"><i
+											class="f7-icons">multiply</i></a>
+								</div>
+								<div class="title">Pekerjaan</div>
+							</div>
+						</div>
+						<div class="block">
+							<form class="searchbar">
+								<div class="searchbar-inner">
+									<div class="searchbar-input-wrap">
+										<input type="search" placeholder="Search"
+											style="border: 1px solid black; border-radius:7px;" />
+										<i class="searchbar-icon"></i>
+										<span class="input-clear-button"></span>
+									</div>
+									<span class="searchbar-disable-button if-not-aurora">Cancel</span>
+								</div>
+							</form>
+							<div class="list searchbar-found">
+								<ul>
+									<li class="item-content" @click="${()=>changePekerjaan('Surabaya')}">
+										<div class="item-inner">
+											<div class="item-title">Surabaya</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<!-- Agama -->
+					<div class="item-title mt-4 mb-1" style="margin-left: 10px; color: #000000; font-weight: 500;">Agama
+					</div>
+					<div class="inner-addon right-addon popup-open" data-popup=".popup-agama">
+						<i class="f7-icons glyphicon">bars</i>
+						<input type="text" id="agama" class="form-control"
+							style="border: 1px solid black; border-radius:7px; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px;"
+							readonly="readonly" onfocus="this.blur();" tabindex="-1" />
+					</div>
+
+					<div class="popup popup-agama">
+						<div class="navbar">
+							<div class="navbar-bg"></div>
+							<div class="navbar-inner">
+								<div class="left" style="padding-top: 10px; padding-left: 10px;">
+									<a href="#" class="link popup-close"
+										style="text-decoration: none; color: #000000;"><i
+											class="f7-icons">multiply</i></a>
+								</div>
+								<div class="title">Agama</div>
+							</div>
+						</div>
+						<div class="block">
+							<form class="searchbar">
+								<div class="searchbar-inner">
+									<div class="searchbar-input-wrap">
+										<input type="search" placeholder="Search"
+											style="border: 1px solid black; border-radius:7px;" />
+										<i class="searchbar-icon"></i>
+										<span class="input-clear-button"></span>
+									</div>
+									<span class="searchbar-disable-button if-not-aurora">Cancel</span>
+								</div>
+							</form>
+							<div class="list searchbar-found">
+								<ul>
+									<li class="item-content" @click="${()=>changeAgama('Surabaya')}">
+										<div class="item-inner">
+											<div class="item-title">Surabaya</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<!-- Golongan Darah -->
+					<div class="item-title mt-4 mb-1" style="margin-left: 10px; color: #000000; font-weight: 500;">
+						Golongan Darah </div>
+					<div class="inner-addon right-addon popup-open" data-popup=".popup-goldar">
+						<i class="f7-icons glyphicon">bars</i>
+						<input type="text" id="goldar" class="form-control"
+							style="border: 1px solid black; border-radius:7px; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px;"
+							readonly="readonly" onfocus="this.blur();" tabindex="-1" />
+					</div>
+
+					<div class="popup popup-goldar">
+						<div class="navbar">
+							<div class="navbar-bg"></div>
+							<div class="navbar-inner">
+								<div class="left" style="padding-top: 10px; padding-left: 10px;">
+									<a href="#" class="link popup-close"
+										style="text-decoration: none; color: #000000;"><i
+											class="f7-icons">multiply</i></a>
+								</div>
+								<div class="title">Golongan Darah</div>
+							</div>
+						</div>
+						<div class="block">
+							<form class="searchbar">
+								<div class="searchbar-inner">
+									<div class="searchbar-input-wrap">
+										<input type="search" placeholder="Search"
+											style="border: 1px solid black; border-radius:7px;" />
+										<i class="searchbar-icon"></i>
+										<span class="input-clear-button"></span>
+									</div>
+									<span class="searchbar-disable-button if-not-aurora">Cancel</span>
+								</div>
+							</form>
+							<div class="list searchbar-found">
+								<ul>
+									<li class="item-content" @click="${()=>changeGoldar('Surabaya')}">
+										<div class="item-inner">
+											<div class="item-title">Surabaya</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<!-- Status Perkawinan -->
+					<div class="item-title mt-4 mb-1" style="margin-left: 10px; color: #000000; font-weight: 500;">
+						Status Perkawinan </div>
+					<div class="inner-addon right-addon popup-open" data-popup=".popup-status">
+						<i class="f7-icons glyphicon">bars</i>
+						<input type="text" id="status" class="form-control"
+							style="border: 1px solid black; border-radius:7px; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px;"
+							readonly="readonly" onfocus="this.blur();" tabindex="-1" />
+					</div>
+
+					<div class="popup popup-status">
+						<div class="navbar">
+							<div class="navbar-bg"></div>
+							<div class="navbar-inner">
+								<div class="left" style="padding-top: 10px; padding-left: 10px;">
+									<a href="#" class="link popup-close"
+										style="text-decoration: none; color: #000000;"><i
+											class="f7-icons">multiply</i></a>
+								</div>
+								<div class="title">Status Perkawinan</div>
+							</div>
+						</div>
+						<div class="block">
+							<form class="searchbar">
+								<div class="searchbar-inner">
+									<div class="searchbar-input-wrap">
+										<input type="search" placeholder="Search"
+											style="border: 1px solid black; border-radius:7px;" />
+										<i class="searchbar-icon"></i>
+										<span class="input-clear-button"></span>
+									</div>
+									<span class="searchbar-disable-button if-not-aurora">Cancel</span>
+								</div>
+							</form>
+							<div class="list searchbar-found">
+								<ul>
+									<li class="item-content" @click="${()=>changeStatus('Surabaya')}">
+										<div class="item-inner">
+											<div class="item-title">Surabaya</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
 					<div class="item-title" style="margin-left: 10px; color: #000000;">Alergi </div>
 					<input type="number" placeholder=""
 						style="border: 1px solid black; border-radius:7px; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px;" />
@@ -311,18 +763,91 @@
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script>
-		app.loginScreen.open("#ftlogin");
+		let waktuku;
+		function jalankanwaktu() {
+			waktuku = setTimeout(function () {
+				app.dialog.close();
+			}, 30000);
+		}
+
+		if (localStorage.tok3n == undefined || localStorage.tok3n == "") {
+			app.loginScreen.open("#ftlogin");
+		} else {
+			$.ajax({
+				url: ceklogin,
+				method: "GET",
+				data: { token: localStorage.tok3n },
+				cache: "false",
+				success: function (respon) {
+					app.dialog.close();
+					clearTimeout(waktuku);
+					let data = JSON.parse(respon);
+					if (data.Code == '200') {
+						// localStorage.setItem("tok3n", data.token);
+						if (data.nama == "") {
+							app.loginScreen.open("#biodata");
+						}
+					} else {
+						app.dialog.alert("Token Expired", "Logout");
+						localStorage.removeItem("tok3n");
+						app.loginScreen.open('#ftlogin');
+					}
+				},
+
+				error: function () {
+					app.dialog.close();
+					clearTimeout(waktuku);
+					app.dialog.alert("Jaringan Sedang Bermasalah, Periksa Kembali Jaringan Internet Anda", "Gagal");
+				}
+			});
+		}
+
+
+
+		function changeJK(id) {
+			$("#jk").val(id);
+			app.popup.close(".popup-jk");
+		}
+
+		function changeProvinsi(id) {
+			$("#provinsi").val(id);
+			app.popup.close(".popup-provinsi");
+		}
+
+		function changekabupaten(id) {
+			$("#kabupaten").val(id);
+			app.popup.close(".popup-kabupaten");
+		}
+
+		function changeDesa(id) {
+			$("#desa").val(id);
+			app.popup.close(".popup-desa");
+		}
+
+		function changePekerjaan(id) {
+			$("#pekerjaan").val(id);
+			app.popup.close(".popup-pekerjaan");
+		}
+
+		function changeAgama(id) {
+			$("#agama").val(id);
+			app.popup.close(".popup-agama");
+		}
+
+		function changeGoldar(id) {
+			$("#goldar").val(id);
+			app.popup.close(".popup-goldar");
+		}
+
+		function changeStatus(id) {
+			$("#status").val(id);
+			app.popup.close(".popup-status");
+		}
+
+
 
 		function masuk() {
 			app.loginScreen.open("#biodata");
-		}
-
-		function bukareg() {
-			app.loginScreen.open("#ftreg");
-		}
-
-		function kelogin() {
-			app.loginScreen.close("#ftreg");
 		}
 
 		function reset() {
@@ -331,6 +856,10 @@
 
 		function otp() {
 			app.loginScreen.open("#verifikasi");
+		}
+
+		function newPass() {
+			app.loginScreen.open("#newPass");
 		}
 
 		function back() {
@@ -346,22 +875,109 @@
 			app.loginScreen.close("#biodata");
 			app.loginScreen.close("#ftlogin");
 		}
-		
-		function linimasaAktif(id){
+
+		function linimasaAktif(id) {
 			$(".days").removeClass("active-days");
 			$("#" + id).addClass("active-days");
 			$(".xxx").css("display", "none");
-                if (id == "senin") {
-                    document.getElementById("linimasaSenin").style.display = "inline";
-                } else if(id ==="selasa"){
-                    document.getElementById("linimasaSelasa").style.display = "inline";
-                } else if(id ==="rabu"){
-                    document.getElementById("linimasaRabu").style.display = "inline";
-                } else if(id ==="kamis"){
-                    document.getElementById("linimasaKamis").style.display = "inline";
-                } else if(id ==="jumat"){
-                    document.getElementById("linimasaJumat").style.display = "inline";
-                }
+			if (id == "senin") {
+				$("#linimasaSenin").css("display", "inline");
+			} else if (id === "selasa") {
+				$("#linimasaSelasa").css("display", "inline");
+			} else if (id === "rabu") {
+				$("#linimasaRabu").css("display", "inline");
+			} else if (id === "kamis") {
+				$("#linimasaKamis").css("display", "inline");
+			} else if (id === "jumat") {
+				$("#linimasaJumat").css("display", "inline");
+			}
+		}
+
+		function registrasi() {
+			let username = $("#txtUser").val();
+			let password = $("#txtPass").val();
+			let konfirmPass = $("#txtKonfirmPass").val();
+
+			if (username == "" || password == "" || konfirmPass == "") {
+				app.dialog.alert("Data harus diisi", "Gagal");
+				return;
+			}
+
+			if (password != konfirmPass) {
+				app.dialog.alert("Password tidak sama", "Gagal");
+				return;
+			}
+
+			app.dialog.progress("Proses data");
+			jalankanwaktu();
+
+			$.ajax({
+				url: regis,
+				method: "GET",
+				data: { username: username, pass: password },
+				cache: "false",
+				success: function (respon) {
+					app.dialog.close();
+					clearTimeout(waktuku);
+					let data = JSON.parse(respon);
+					if (data.Code == '200') {
+						app.dialog.alert(data.Messages, data.Status);
+						$(".frmreg").val("");
+						app.loginScreen.close("#ftreg");
+					} else {
+						app.dialog.alert(data.Messages, data.Status);
+					}
+				},
+
+				error: function () {
+					app.dialog.close();
+					clearTimeout(waktuku);
+					app.dialog.alert("Jaringan Sedang Bermasalah, Periksa Kembali Jaringan Internet Anda", "Gagal");
+				}
+			});
+
+		}
+
+		function loginku() {
+			let username = $("#loginUser").val();
+			let password = $("#loginPass").val();
+
+			if (username == "" || password == "") {
+				app.dialog.alert("Data harus diisi", "Gagal");
+				return;
+			}
+
+			app.dialog.progress("Proses data");
+			jalankanwaktu();
+
+			$.ajax({
+				url: login,
+				method: "GET",
+				data: { username: username, pass: password },
+				cache: "false",
+				success: function (respon) {
+					app.dialog.close();
+					clearTimeout(waktuku);
+					let data = JSON.parse(respon);
+					if (data.Code == '200') {
+						localStorage.setItem("tok3n", data.token);
+						$(".frmlogin").val("");
+						app.loginScreen.close("#ftlogin");
+						if (data.nama == "") {
+							app.loginScreen.open("#biodata");
+						}
+					} else {
+						app.dialog.alert(data.Messages, data.Status);
+					}
+				},
+
+				error: function () {
+					app.dialog.close();
+					clearTimeout(waktuku);
+					app.dialog.alert("Jaringan Sedang Bermasalah, Periksa Kembali Jaringan Internet Anda", "Gagal");
+				}
+			});
+
 		}
 	</script>
 </body>

@@ -41,3 +41,10 @@ var app = new Framework7({
     placementId: 'pltd4o7ibb9rc653x14',
   },
 });
+
+// let api = "https://batch3.crazycoding.my.id/api/public/api/";
+// let api = "http://192.168.1.168:8000/api/";
+let api = "https://batch3.crazycoding.my.id/api2/Api/";
+let regis = api + "registrasi";
+let login = api + "login";
+let ceklogin = api + "ceklogin";

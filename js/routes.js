@@ -19,6 +19,10 @@ var routes = [
     componentUrl: 'pages/riwayat-pemeriksaan.html',
   },
   {
+    path: '/detail-pemeriksaan/', 
+    componentUrl: 'pages/detail-pemeriksaan.html',
+  },
+  {
     path: '/menu-lainnya/', 
     componentUrl: 'pages/menu-lainnya.html',
   },
@@ -29,5 +33,9 @@ var routes = [
   {
     path: '/pendaftaran-detail/', 
     componentUrl: 'pages/pendaftaran-detail.html',
+  },
+  {
+    path: '/nomor-antrian/', 
+    componentUrl: 'pages/nomor-antrian.html',
   },
 ];
