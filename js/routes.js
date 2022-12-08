@@ -19,7 +19,7 @@ var routes = [
     componentUrl: 'pages/riwayat-pemeriksaan.html',
   },
   {
-    path: '/detail-pemeriksaan/', 
+    path: '/detail-periksa/', 
     componentUrl: 'pages/detail-pemeriksaan.html',
   },
   {

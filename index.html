@@ -770,37 +770,37 @@
 			}, 30000);
 		}
 
-		if (localStorage.tok3n == undefined || localStorage.tok3n == "") {
-			app.loginScreen.open("#ftlogin");
-		} else {
-			$.ajax({
-				url: ceklogin,
-				method: "GET",
-				data: { token: localStorage.tok3n },
-				cache: "false",
-				success: function (respon) {
-					app.dialog.close();
-					clearTimeout(waktuku);
-					let data = JSON.parse(respon);
-					if (data.Code == '200') {
-						// localStorage.setItem("tok3n", data.token);
-						if (data.nama == "") {
-							app.loginScreen.open("#biodata");
-						}
-					} else {
-						app.dialog.alert("Token Expired", "Logout");
-						localStorage.removeItem("tok3n");
-						app.loginScreen.open('#ftlogin');
-					}
-				},
+		// if (localStorage.tok3n == undefined || localStorage.tok3n == "") {
+		// 	app.loginScreen.open("#ftlogin");
+		// } else {
+		// 	$.ajax({
+		// 		url: ceklogin,
+		// 		method: "GET",
+		// 		data: { token: localStorage.tok3n },
+		// 		cache: "false",
+		// 		success: function (respon) {
+		// 			app.dialog.close();
+		// 			clearTimeout(waktuku);
+		// 			let data = JSON.parse(respon);
+		// 			if (data.Code == '200') {
+		// 				// localStorage.setItem("tok3n", data.token);
+		// 				if (data.nama == "") {
+		// 					app.loginScreen.open("#biodata");
+		// 				}
+		// 			} else {
+		// 				app.dialog.alert("Token Expired", "Logout");
+		// 				localStorage.removeItem("tok3n");
+		// 				app.loginScreen.open('#ftlogin');
+		// 			}
+		// 		},
 
-				error: function () {
-					app.dialog.close();
-					clearTimeout(waktuku);
-					app.dialog.alert("Jaringan Sedang Bermasalah, Periksa Kembali Jaringan Internet Anda", "Gagal");
-				}
-			});
-		}
+		// 		error: function () {
+		// 			app.dialog.close();
+		// 			clearTimeout(waktuku);
+		// 			app.dialog.alert("Jaringan Sedang Bermasalah, Periksa Kembali Jaringan Internet Anda", "Gagal");
+		// 		}
+		// 	});
+		// }
 
 
 
@@ -893,92 +893,92 @@
 			}
 		}
 
-		function registrasi() {
-			let username = $("#txtUser").val();
-			let password = $("#txtPass").val();
-			let konfirmPass = $("#txtKonfirmPass").val();
+		// function registrasi() {
+		// 	let username = $("#txtUser").val();
+		// 	let password = $("#txtPass").val();
+		// 	let konfirmPass = $("#txtKonfirmPass").val();
 
-			if (username == "" || password == "" || konfirmPass == "") {
-				app.dialog.alert("Data harus diisi", "Gagal");
-				return;
-			}
+		// 	if (username == "" || password == "" || konfirmPass == "") {
+		// 		app.dialog.alert("Data harus diisi", "Gagal");
+		// 		return;
+		// 	}
 
-			if (password != konfirmPass) {
-				app.dialog.alert("Password tidak sama", "Gagal");
-				return;
-			}
+		// 	if (password != konfirmPass) {
+		// 		app.dialog.alert("Password tidak sama", "Gagal");
+		// 		return;
+		// 	}
 
-			app.dialog.progress("Proses data");
-			jalankanwaktu();
+		// 	app.dialog.progress("Proses data");
+		// 	jalankanwaktu();
 
-			$.ajax({
-				url: regis,
-				method: "GET",
-				data: { username: username, pass: password },
-				cache: "false",
-				success: function (respon) {
-					app.dialog.close();
-					clearTimeout(waktuku);
-					let data = JSON.parse(respon);
-					if (data.Code == '200') {
-						app.dialog.alert(data.Messages, data.Status);
-						$(".frmreg").val("");
-						app.loginScreen.close("#ftreg");
-					} else {
-						app.dialog.alert(data.Messages, data.Status);
-					}
-				},
+		// 	$.ajax({
+		// 		url: regis,
+		// 		method: "GET",
+		// 		data: { username: username, pass: password },
+		// 		cache: "false",
+		// 		success: function (respon) {
+		// 			app.dialog.close();
+		// 			clearTimeout(waktuku);
+		// 			let data = JSON.parse(respon);
+		// 			if (data.Code == '200') {
+		// 				app.dialog.alert(data.Messages, data.Status);
+		// 				$(".frmreg").val("");
+		// 				app.loginScreen.close("#ftreg");
+		// 			} else {
+		// 				app.dialog.alert(data.Messages, data.Status);
+		// 			}
+		// 		},
 
-				error: function () {
-					app.dialog.close();
-					clearTimeout(waktuku);
-					app.dialog.alert("Jaringan Sedang Bermasalah, Periksa Kembali Jaringan Internet Anda", "Gagal");
-				}
-			});
+		// 		error: function () {
+		// 			app.dialog.close();
+		// 			clearTimeout(waktuku);
+		// 			app.dialog.alert("Jaringan Sedang Bermasalah, Periksa Kembali Jaringan Internet Anda", "Gagal");
+		// 		}
+		// 	});
 
-		}
+		// }
 
-		function loginku() {
-			let username = $("#loginUser").val();
-			let password = $("#loginPass").val();
+		// function loginku() {
+		// 	let username = $("#loginUser").val();
+		// 	let password = $("#loginPass").val();
 
-			if (username == "" || password == "") {
-				app.dialog.alert("Data harus diisi", "Gagal");
-				return;
-			}
+		// 	if (username == "" || password == "") {
+		// 		app.dialog.alert("Data harus diisi", "Gagal");
+		// 		return;
+		// 	}
 
-			app.dialog.progress("Proses data");
-			jalankanwaktu();
+		// 	app.dialog.progress("Proses data");
+		// 	jalankanwaktu();
 
-			$.ajax({
-				url: login,
-				method: "GET",
-				data: { username: username, pass: password },
-				cache: "false",
-				success: function (respon) {
-					app.dialog.close();
-					clearTimeout(waktuku);
-					let data = JSON.parse(respon);
-					if (data.Code == '200') {
-						localStorage.setItem("tok3n", data.token);
-						$(".frmlogin").val("");
-						app.loginScreen.close("#ftlogin");
-						if (data.nama == "") {
-							app.loginScreen.open("#biodata");
-						}
-					} else {
-						app.dialog.alert(data.Messages, data.Status);
-					}
-				},
+		// 	$.ajax({
+		// 		url: login,
+		// 		method: "GET",
+		// 		data: { username: username, pass: password },
+		// 		cache: "false",
+		// 		success: function (respon) {
+		// 			app.dialog.close();
+		// 			clearTimeout(waktuku);
+		// 			let data = JSON.parse(respon);
+		// 			if (data.Code == '200') {
+		// 				localStorage.setItem("tok3n", data.token);
+		// 				$(".frmlogin").val("");
+		// 				app.loginScreen.close("#ftlogin");
+		// 				if (data.nama == "") {
+		// 					app.loginScreen.open("#biodata");
+		// 				}
+		// 			} else {
+		// 				app.dialog.alert(data.Messages, data.Status);
+		// 			}
+		// 		},
 
-				error: function () {
-					app.dialog.close();
-					clearTimeout(waktuku);
-					app.dialog.alert("Jaringan Sedang Bermasalah, Periksa Kembali Jaringan Internet Anda", "Gagal");
-				}
-			});
+		// 		error: function () {
+		// 			app.dialog.close();
+		// 			clearTimeout(waktuku);
+		// 			app.dialog.alert("Jaringan Sedang Bermasalah, Periksa Kembali Jaringan Internet Anda", "Gagal");
+		// 		}
+		// 	});
 
-		}
+		// }
 	</script>
 </body>
 
