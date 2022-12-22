@@ -42,9 +42,20 @@ var app = new Framework7({
   },
 });
 
-// let api = "https://batch3.crazycoding.my.id/api/public/api/";
-// let api = "http://192.168.1.168:8000/api/";
+let api = "https://batch3.crazycoding.my.id/api/public/api/";
+// let api = "http://192.168.1.146:8000/api/";
 // let api = "https://batch3.crazycoding.my.id/api2/Api/";
-// let regis = api + "registrasi";
-// let login = api + "login";
-// let ceklogin = api + "ceklogin";
+let regis = api + "registrasi";
+let login = api + "login";
+let ceklogin = api + "ceklogin";
+let getprov = api + "propinsi";
+let getkab = api + "kabupaten";
+let getkec = api + "kecamatan";
+let getdesa = api + "desa";
+let getkerja = api + "pekerjaan";
+let getagama = api + "agama";
+let getgoldar = api + "goldar";
+let updatebio = api + "biodata";
+let getpoli = api + "poli";
+let getdaftarpoli = api + "jadwal";
+let getjampoli1 = api + "getjam";

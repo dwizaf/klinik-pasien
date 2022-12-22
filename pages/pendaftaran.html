@@ -13,37 +13,75 @@
                     </div>
                 </div>
             </div>
-            <div class="block">
-                <div class="col" style=" margin: 0px 0px 10px 0px;">
-                    <div class="row" style="background-color: white; border-radius:15px;">
-                        <div class="col-25 text-center mt-4" style="margin:5%;">
-                            <img src="img/stethoscope-white 1.png" class="icon-big d-block"
-                                style="background-color: #0496FF; border-radius: 10px; margin: auto; padding: 7px;" />
-                        </div>
-                        <div class="col-35" style="margin: 15px 5px 15px 0;">
-                            <p>Jam buka
-                                <br />Jam tutup
-                            </p>
-                            <p>
-                                Dokter jaga
-                            </p>
-                        </div>
-                        <div class="col-35" style="margin: 15px 5px 15px 0;">
-                            <p>: 07.00 WIB
-                                <br />: 17.00 WIB
-                            </p>
-                            <p>: Dr. Haris <br /> Dr. Wima</p>
+            <div class="block mt-0">
+                <div class="row">
+                    <div class="col">
+                        <div class="card" style="background-color: #0496FF; border-radius: 10px;">
+                            <div class="card-content card-content-padding">
+                                <div class="row">
+                                    <div class="col-30">
+                                        <img src="img/stethoscope-white 1.png" style="margin:auto; display:block;" />
+                                    </div>
+                                    <div class="col-70" id="jdlpoli"
+                                        style="font-size: 22px; color: white; font-weight: bold;">
+                                        NAMA POLI
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <div data-pagination='{"el": ".swiper-pagination"}' data-space-between="50"
+                    class="swiper swiper-init demo-swiper">
+                    <div class="swiper-pagination"></div>
+                        <div class="swiper-wrapper" id="harijadwalpoli">
+                            <!-- <div class="swiper-slide">
+                                <div class="card-outline no-border">
+                                    <div class="card-header">SENIN</div>
+                                    <div class="card-content card-content-padding" style="font-size: 1rem;">
+                                        
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+
                 <h6 class="text-center mt-5">Silakan tentukan tanggal dan waktu pemeriksaan Anda</h6>
+
                 <div style="margin-top: 50px;">
-                    <div class="item-title" style="margin-left: 10px; color: #000000;">Tanggal Periksa </div>
-                    <input type="date" placeholder=""
-                        style="border: 1px solid black; border-radius:7px; background-color: white; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px;" />
-                    <div class="item-title" style="margin-left: 10px; color: #000000;">Waktu </div>
-                    <input type="time" placeholder=""
-                        style="border: 1px solid black; border-radius:7px; background-color: white; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px;" />
+                    <div class="item-title mt-4 mb-1" style="margin-left: 10px; color: #000000; font-weight: 500;">
+                        Tanggal Periksa </div>
+                    <div class="inner-addon right-addon">
+                        <input type="date" id="tglperiksa"
+                            style="border: 1px solid black; border-radius:7px; width: 90%; margin: 0 10px 15px 10px; padding: 5px 7px 5px 10px; background-color: white;" />
+                    </div>
+
+                    <div class="item-title mt-4 mb-1" style="margin-left: 10px; color: #000000; font-weight: 500;">
+                        Waktu </div>
+                    <div class="inner-addon right-addon" @click="${()=>getjampoli()}">
+                        <i class="f7-icons glyphicon">bars</i>
+                        <input type="text" id="waktuperiksa" class="form-control"
+                            style="border: 1px solid black; border-radius:7px; width: 90%; margin: 0 10px 15px 10px; padding: 5px 0 5px 10px; background-color: white;"
+                            readonly />
+                    </div>
+                    <div class="popup" id="popup-waktu">
+                        <div class="navbar">
+                            <div class="navbar-bg"></div>
+                            <div class="navbar-inner">
+                                <div class="left" style="padding-top: 10px; padding-left: 10px;">
+                                    <a href="#" class="link popup-close"
+                                        style="text-decoration: none; color: #000000;"><i
+                                            class="f7-icons">multiply</i></a>
+                                </div>
+                                <div class="title">Pilih Waktu</div>
+                            </div>
+                        </div>
+                        <div class="page-content pt-1">
+                            <div class="list links-list mt-0" id="blokjam"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="block text-center col" style="padding-top: 10%;">
                     <div class="row">
