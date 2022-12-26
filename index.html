@@ -1176,13 +1176,41 @@
 											</div>
 										</div>`;
 							}
-							$("#blokpoli").html(`${dt}<div class="col-33" onclick='app.view.main.router.navigate("/menu-lainnya/");'>
+							$("#blokpoli").html(`${dt}<div class="col-33" onclick="menuLainnya()">
 											<div class="card" style="border-radius: 10px; background-color: #0496FF; margin:7px;">
 												<div class="card-content text-center text-white" style="padding: 7px;">
 													<img src="img/lainnya.png" class="mb-2" style="margin:auto; display:block;" />Lainnya
 												</div>
 											</div>
 										</div>`);
+						}
+					});
+
+
+			})
+		}
+
+		function menuLainnya() {
+			db.transaction(function (tx) {
+				tx.executeSql("SELECT * FROM poli", [],
+					function (tx, results) {
+						let jmldata = results.rows.length;
+						if (jmldata > 0) {
+							let dt = "";
+							for (i = 0; i < jmldata; i++) {
+								id = results.rows.item(i).id;
+								nama = results.rows.item(i).nama;
+								gambar = results.rows.item(i).gambar;
+
+								dt += `<div class="col-33" data-id="${id}" onclick="getdetailpoli(this)">
+											<div class="card" style="border-radius: 10px; background-color: #0496FF; margin:7px;">
+												<div class="card-content text-center text-white" style="padding: 7px;">
+													<img src="img/${gambar}" class="mb-2" style="margin:auto; display:block;" />${nama}
+												</div>
+											</div>
+										</div>`;
+							}
+							$("#layanankami").html(`${dt}`);
 						}
 					});
 
@@ -1249,24 +1277,24 @@
 													<div class="item-subtitle" style="font-size: 18px;">${jampisah[i]}</div>
 												</div>
 											</li>`;
-									}
-								} else {
-									jadwal += `
-									<li class="item-content">
-												<div class="item-media">
-													<div class="card m-0 p-0">
-														<div class="card-header p-0 pl-2 pr-2" style="font-size: 15px;">Kuota</div>
-														<div class="card-content card-content-padding m-0 p-0 text-center" style="font-weight: bold; font-size: 20px;">${kuotapisah[i]}</div>
+							}
+						} else {
+							jadwal += `<li class="item-content">
+													<div class="item-media">
+														<div class="card m-0 p-0">
+															<div class="card-header p-0 pl-2 pr-2" style="font-size: 15px;">Kuota</div>
+															<div class="card-content card-content-padding m-0 p-0 text-center" style="font-weight: bold; font-size: 20px;">${kuotapisah}</div>
+														</div>
 													</div>
-												</div>
-												<div class="item-inner">
-													<div class="item-title-row">
-														<div class="item-title" style="font-size: 22px;">${dokterpisah[i]}</div>
+													<div class="item-inner">
+														<div class="item-title-row">
+															<div class="item-title" style="font-size: 22px;">${dokterpisah}</div>
+														</div>
+														<div class="item-subtitle" style="font-size: 18px;">${jampisah}</div>
 													</div>
-													<div class="item-subtitle" style="font-size: 18px;">${jampisah[i]}</div>
-												</div>
-											</li>`;
-								}
+												</li>`;
+
+						}
 						$("#jdlpoli").html(poli);
 						dt += `
 						<div class="swiper-slide" style="background-color:transparent;">
@@ -1284,6 +1312,8 @@
 						 `;
 					})
 					$("#harijadwalpoli").html(dt);
+				} else {
+					app.dialog.alert("Tidak ada jadwal poli", "Info");
 				}
 			})
 		}
@@ -1296,6 +1326,7 @@
 			}
 			app.dialog.progress("Proses data");
 			jalankanwaktu();
+
 			let keyword = btoa(`${sessionStorage.id_poli_pilih}|${tglpoli}`);
 			$.getJSON(`${getjampoli1}/${keyword}`, function (result) {
 				app.dialog.close();
@@ -1325,6 +1356,48 @@
 			let nilai = $(el).data("nilai");
 			$("#waktuperiksa").val(nilai);
 			app.popup.close();
+		}
+
+		function simpandaftarpoli() {
+			let id = sessionStorage.id_poli_pilih;
+			let tglpoli = $("#tglperiksa").val();
+			let jampoli = $("#waktuperiksa").val();
+			if (jampoli == "") {
+				app.dialog.alert("Silahkan pilih jadwal", "Gagal");
+				return;
+			}
+			app.dialog.progress("Proses data");
+			jalankanwaktu();
+
+			$.ajax({
+				url: daftarpoli,
+				method: "POST",
+				data: {
+					id_poli: id,
+					tanggal: tglpoli,
+					jam: jampoli
+				},
+				headers: { Authorization: `Bearer ${localStorage.tok3n}` },
+				cache: "false",
+				success: function (respon) {
+					app.dialog.close();
+					clearTimeout(waktuku);
+					let data = JSON.parse(respon);
+					if (data.code == '200') {
+						app.dialog.alert(data.messages, data.status);
+						// $(".frmreg").val("");
+						app.view.main.router.navigate("/pendaftaran-detail/");
+					} else {
+						app.dialog.alert(data.messages, data.status);
+					}
+				},
+
+				error: function () {
+					app.dialog.close();
+					clearTimeout(waktuku);
+					app.dialog.alert("Jaringan Sedang Bermasalah, Periksa Kembali Jaringan Internet Anda", "Gagal");
+				}
+			});
 		}
 
 	</script>

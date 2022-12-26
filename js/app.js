@@ -59,3 +59,4 @@ let updatebio = api + "biodata";
 let getpoli = api + "poli";
 let getdaftarpoli = api + "jadwal";
 let getjampoli1 = api + "getjam";
+let daftarpoli = api + "pendaftaran";
