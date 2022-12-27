@@ -609,6 +609,7 @@
 	<script>
 		let db;
 		let waktuku;
+		sessionStorage.setItem("status", "");
 
 		function jalankanwaktu() {
 			waktuku = setTimeout(function () {
@@ -1191,6 +1192,7 @@
 		}
 
 		function menuLainnya() {
+			app.view.main.router.navigate("/menu-lainnya/");
 			db.transaction(function (tx) {
 				tx.executeSql("SELECT * FROM poli", [],
 					function (tx, results) {
@@ -1362,10 +1364,15 @@
 			let id = sessionStorage.id_poli_pilih;
 			let tglpoli = $("#tglperiksa").val();
 			let jampoli = $("#waktuperiksa").val();
+
+			sessionStorage.setItem("tgl_pilih", tglpoli);
+			sessionStorage.setItem("jam_pilih", jampoli);
+
 			if (jampoli == "") {
 				app.dialog.alert("Silahkan pilih jadwal", "Gagal");
 				return;
 			}
+
 			app.dialog.progress("Proses data");
 			jalankanwaktu();
 
@@ -1384,9 +1391,13 @@
 					clearTimeout(waktuku);
 					let data = JSON.parse(respon);
 					if (data.code == '200') {
-						app.dialog.alert(data.messages, data.status);
-						// $(".frmreg").val("");
-						app.view.main.router.navigate("/pendaftaran-detail/");
+						app.dialog.alert(data.messages, data.status, function(){
+							// app.view.main.router.back();
+							sessionStorage.status = "baru";
+							// cektampilantrian();
+							app.view.main.router.navigate("/nomor-antrian/");
+						});
+
 					} else {
 						app.dialog.alert(data.messages, data.status);
 					}
@@ -1400,6 +1411,11 @@
 			});
 		}
 
+		function cektampilantrian(){
+			if(sessionStorage.status == "baru"){
+                app.view.main.router.navigate("/nomor-antrian/");
+            }
+		}
 	</script>
 </body>
 
